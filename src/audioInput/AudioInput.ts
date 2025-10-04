@@ -1,5 +1,6 @@
 import {INPUT_WORKLET_PROCESSOR_NAME} from "./constants.ts";
 import {INPUT_SAMPLE_RATE_S} from "../constants.ts";
+import recordWorkletUrl from './recordWorklet.ts?worker&url';
 
 export class AudioInput {
   private context: AudioContext|null = null;
@@ -30,7 +31,7 @@ export class AudioInput {
     this.source = this.context.createMediaStreamSource(mediaStream);
     this.source.connect(this.analyzer);
 
-    await this.context.audioWorklet.addModule(new URL("./recordWorklet.ts", import.meta.url));
+    await this.context.audioWorklet.addModule(recordWorkletUrl);
 
     this.worklet = new AudioWorkletNode(this.context, INPUT_WORKLET_PROCESSOR_NAME, {
       numberOfInputs: 1,

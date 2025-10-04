@@ -1,4 +1,5 @@
 import {PLAYBACK_WORKLET_MESSAGES, PLAYBACK_WORKLET_NAME} from "./constants.ts";
+import playbackWorkletUrl from './playbackWorklet.ts?worker&url';
 
 export class AudioOutput {
   private context: AudioContext|null = null;
@@ -9,7 +10,7 @@ export class AudioOutput {
     this.context = new AudioContext({sampleRate: 24000});
     this.context.resume();
 
-    await this.context.audioWorklet.addModule(new URL("./playbackWorklet.ts", import.meta.url));
+    await this.context.audioWorklet.addModule(playbackWorkletUrl);
 
     this.worklet = new AudioWorkletNode(this.context, PLAYBACK_WORKLET_NAME);
     this.analyzer = this.context.createAnalyser();

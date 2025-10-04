@@ -64,6 +64,7 @@ cd albertina
 npm i
 npm run dev
 ```
+_Note: ~2.5GB of data will be downloaded by the browser._
 
 #### How to download models
 There are two ways of downloading and storing models:
