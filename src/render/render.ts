@@ -58,7 +58,7 @@ export class Render {
     this.loadingContainer = document.createElement('div');
     document.body.appendChild(this.loadingContainer);
 
-    this.loadingContainer.innerHTML = 'loading...';
+    this.loadingContainer.innerHTML = 'loading models, it may take some time...';
     Object.assign(this.loadingContainer.style, {
       color: 'white',
       backgroundColor: 'black',
