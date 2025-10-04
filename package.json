@@ -1,0 +1,29 @@
+{
+  "name": "speech-to-speech",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "3.7.3",
+    "@types/audioworklet": "^0.0.83",
+    "@types/three": "^0.180.0",
+    "kokoro-js": "^1.2.1",
+    "modern-normalize": "^3.0.1",
+    "three": "0.158.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.22.0",
+    "@typescript-eslint/eslint-plugin": "^8.42.0",
+    "@typescript-eslint/parser": "^8.42.0",
+    "eslint": "^9.22.0",
+    "globals": "^16.0.0",
+    "typescript": "^5.9.2",
+    "vite": "^6.3.1"
+  }
+}
