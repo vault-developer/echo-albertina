@@ -138,7 +138,7 @@ You can find examples in `src/worker/main/constants.ts`.
 | Whisper | STT  | `onnx-community/whisper-base`         | `/models/stt/whisper-base`          |
 | SmolLm  | LLM  | `HuggingFaceTB/SmolLM2-1.7B-Instruct` | `/models/llm/smollm2-1,7b-instruct` |
 
-## Contribution:
+## Contribution
 If you want to contribute, feel free to fork this repository and create a pull request.  
 Have a question or idea? Feel free to raise it in our discussions session 👍  
 
