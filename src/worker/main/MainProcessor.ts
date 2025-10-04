@@ -22,10 +22,10 @@ export class MainProcessor {
 
   static loadModels = async () => {
     await Promise.all([
-      LLMProcessor.loadModel(LLM.SMOLLM2_L),
-      TTSProcessor.loadModel(TTS.KOKORO_L),
-      STTProcessor.loadModel(STT.WHISPER_SMALL_L),
-      VADProcessor.loadModel(VAD.SILERO_L)
+      LLMProcessor.loadModel(LLM.SMOLLM2_R),
+      TTSProcessor.loadModel(TTS.KOKORO_R),
+      STTProcessor.loadModel(STT.WHISPER_SMALL_R),
+      VADProcessor.loadModel(VAD.SILERO_R)
     ]);
   }
 
