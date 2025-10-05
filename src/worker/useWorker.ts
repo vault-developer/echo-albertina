@@ -24,7 +24,7 @@ export const useWorker = ({
 
     const handleMessage = {
       [OUT.STATUS_LOADING]: () => {
-        // TODO: move to render part
+        // TODO: move to the render part
         const {status, name, file, progress, total} = data.value;
         const id = name + file;
         if (status === 'initiate') {
