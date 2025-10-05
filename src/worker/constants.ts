@@ -1,6 +1,6 @@
 export const WORKER_MESSAGES = {
   OUT: {
-    STATUS_LOADING: 'status:loading_models',
+    STATUS_LOADING: 'status:loading_progress',
     STATUS_READY: 'status:ready',
     STATUS_SPEECH_START: 'status:vad:speech start',
     STATUS_SPEECH_END: 'status:vad:speech end',

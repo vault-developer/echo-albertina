@@ -58,13 +58,15 @@ export class Render {
     this.loadingContainer = document.createElement('div');
     document.body.appendChild(this.loadingContainer);
 
-    this.loadingContainer.innerHTML = 'loading models, it may take some time...';
+    this.loadingContainer.innerHTML = 'loading models, it may take some time...<br/><br/>';
+    this.loadingContainer.id = 'root';
     Object.assign(this.loadingContainer.style, {
       color: 'white',
       backgroundColor: 'black',
       display: 'flex',
-      alignItems: 'center',
       justifyContent: 'center',
+      flexDirection: 'column',
+      padding: '10%',
       height: '100vh',
       fontFamily: 'sans-serif',
     });

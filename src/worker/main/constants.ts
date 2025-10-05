@@ -1,9 +1,11 @@
-import {DataType} from "@huggingface/transformers";
+import {DataType, ProgressInfo} from "@huggingface/transformers";
 
 export interface IModel {
   name: string;
   type: DataType  | Record<string, DataType>
 }
+
+export type IOnDownloadProgress = (progress: ProgressInfo) => void;
 
 export const ONNX_MODELS = {
   VAD: {

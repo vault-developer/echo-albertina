@@ -4,7 +4,7 @@ import {TTSProcessor} from "../tts/TTSProcessor.ts";
 import {LLMProcessor} from "../llm/LLMProcessor.ts";
 import {WORKER_MESSAGES} from "../constants.ts";
 import {env} from '@huggingface/transformers';
-import {ONNX_MODELS} from "./constants.ts";
+import {IOnDownloadProgress, ONNX_MODELS} from "./constants.ts";
 import {Scheduler} from "./Scheduler.ts";
 
 env.allowLocalModels = true;
@@ -20,12 +20,12 @@ export class MainProcessor {
 
   private scheduler = new Scheduler();
 
-  static loadModels = async () => {
+  static loadModels = async ({onDownloadProgress}: {onDownloadProgress: IOnDownloadProgress}) => {
     await Promise.all([
-      LLMProcessor.loadModel(LLM.SMOLLM2_R),
-      TTSProcessor.loadModel(TTS.KOKORO_R),
-      STTProcessor.loadModel(STT.WHISPER_SMALL_R),
-      VADProcessor.loadModel(VAD.SILERO_R)
+      LLMProcessor.loadModel(LLM.SMOLLM2_R, onDownloadProgress),
+      TTSProcessor.loadModel(TTS.KOKORO_R, onDownloadProgress),
+      STTProcessor.loadModel(STT.WHISPER_SMALL_R, onDownloadProgress),
+      VADProcessor.loadModel(VAD.SILERO_R, onDownloadProgress)
     ]);
   }
 

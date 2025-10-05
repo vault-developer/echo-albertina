@@ -2,7 +2,7 @@ import {AutoConfig, AutoModel, PreTrainedModel, Tensor} from "@huggingface/trans
 import {INPUT_SAMPLE_RATE_S} from "../../constants.ts";
 import {createDebounce} from "./utils/debounce.ts";
 import {ManagedBuffer} from "./utils/ManagedBuffer.ts";
-import {IModel} from "../main/constants.ts";
+import {IModel, IOnDownloadProgress} from "../main/constants.ts";
 
 // Probabilities above this value are considered as speech
 export const SPEECH_THRESHOLD = 0.1;
@@ -31,13 +31,14 @@ export class VADProcessor {
     this.onSpeechEnd = onSpeechEnd;
   }
 
-  public static loadModel = async (model: IModel) => {
+  public static loadModel = async (model: IModel, onDownloadProgress: IOnDownloadProgress) => {
     const config = await AutoConfig.from_pretrained(model.name, {
       local_files_only: false,
     });
     this.model = await AutoModel.from_pretrained(model.name, {
       config,
       dtype: model.type,
+      progress_callback: onDownloadProgress
     })
   }
 

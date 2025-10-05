@@ -1,18 +1,19 @@
 import {pipeline} from "@huggingface/transformers";
 import {INPUT_SAMPLE_RATE_S} from "../../constants.ts";
-import {IModel} from "../main/constants.ts";
+import {IModel, IOnDownloadProgress} from "../main/constants.ts";
 
 export class STTProcessor {
   public static model: any = null;
 
-  public static loadModel = async (model: IModel) => {
+  public static loadModel = async (model: IModel, onDownloadProgress: IOnDownloadProgress) => {
     const pipe = await pipeline(
       "automatic-speech-recognition",
       model.name,
       {
         device: "webgpu",
         local_files_only: false,
-        dtype: model.type
+        dtype: model.type,
+        progress_callback: onDownloadProgress
       },
     );
 

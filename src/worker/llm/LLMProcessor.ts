@@ -5,7 +5,7 @@ import {
   PreTrainedModel,
   PreTrainedTokenizer, TextStreamer
 } from "@huggingface/transformers";
-import {IModel} from "../main/constants.ts";
+import {IModel, IOnDownloadProgress} from "../main/constants.ts";
 
 type IChat = {
   role: 'user' | 'system' | 'assistant';
@@ -24,14 +24,16 @@ export class LLMProcessor {
   public pastKeyValuesCache: any = null;
   public stoppingCriteria: InterruptableStoppingCriteria | null = null;
 
-  public static loadModel = async (config: IModel) => {
+  public static loadModel = async (config: IModel, onDownloadProgress: IOnDownloadProgress) => {
     const model = await AutoModelForCausalLM.from_pretrained(config.name, {
       dtype: config.type,
       device: "webgpu",
       local_files_only: false,
+      progress_callback: onDownloadProgress
     });
     const tokenizer = await AutoTokenizer.from_pretrained(config.name, {
       local_files_only: false,
+      progress_callback: onDownloadProgress
     });
     await model.generate({ ...tokenizer("x"), max_new_tokens: 1 });
 
