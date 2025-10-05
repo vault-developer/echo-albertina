@@ -8,6 +8,8 @@ The application integrates a complete pipeline of AI models to enable conversati
 
 Built with the [Transformers.js](https://huggingface.co/docs/transformers.js) library, this project serves as a technical demonstration of running a sophisticated, multi-model AI system on the client-side. All that is required for it to function is a modern web browser that supports the necessary web standards.
 
+**It is not working on mobile devices due to the model sizes.**
+
 Demo: https://echo-albertina.vercel.app/
 
 https://github.com/user-attachments/assets/a80e8e65-f78f-4827-8ef9-54fb3f7badbf
